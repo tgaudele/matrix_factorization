@@ -11,8 +11,10 @@ void positiveFactor::step(double lr)
         ++j;
     }
 
-    arma::mat numerator = (weights * (arma::abs(derivativeDenominator) - derivativeDenominator) + arma::abs(derivativeNumerator) + derivativeNumerator)/2.0;
-    arma::mat denominator = (weights * (arma::abs(derivativeDenominator) + derivativeDenominator) + arma::abs(derivativeNumerator) - derivativeNumerator)/2.0;
+    //arma::mat temp = weights * derivativeDenominator;
+    //arma::mat numerator = (weights * (arma::abs(derivativeDenominator) - derivativeDenominator) + arma::abs(derivativeNumerator) + derivativeNumerator)/2.0;
+    arma::mat numerator = (weights * (arma::max(-derivativeDenominator,arma::zeros(arma::size(derivativeDenominator)))) + arma::max(derivativeNumerator,arma::zeros(arma::size(derivativeNumerator))))/2.0;
+    arma::mat denominator = (weights * (arma::max(derivativeDenominator,arma::zeros(arma::size(derivativeDenominator)))) + arma::max(-derivativeNumerator,arma::zeros(arma::size(derivativeNumerator))))/2.0;
 
     if (!regularizeFlag) {
         weights %= arma::sqrt((numerator + 1e-9)/(denominator + 1e-9));

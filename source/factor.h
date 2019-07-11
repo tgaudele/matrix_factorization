@@ -8,7 +8,7 @@ class factor
 {
 public:
     factor() {}
-    factor(const std::string &str,unsigned int m, unsigned int n);
+    factor(const std::string &str, unsigned int m, unsigned int n, const std::string& initMode);
     ~factor() {}
 
     void addRegularizer(double* reg, const arma::SizeMat &s);
@@ -16,9 +16,11 @@ public:
 
     void virtual step(double lr) {}
 
+    void randomInitializer();
+    void svdnmfInitializer();
+    void nnsvdInitializer();
     void initialiseWeights();
     void virtual initialiseDerivatives() {}
-    void reset();
 
     inline unsigned int getNumRows(){ return numRows; }
     inline unsigned int getNumCols(){ return numCols;}
@@ -29,6 +31,7 @@ public:
 
 protected:
     std::string name;
+    std::string initializer;
     arma::mat weights;
     unsigned int numRows;
     unsigned int numCols;

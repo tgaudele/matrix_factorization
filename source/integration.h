@@ -16,7 +16,6 @@ public:
     integration(objectives &o_list, factors &f_list): Os(o_list), Fs(f_list), numObjectives(o_list.size()), numFactors(f_list.size()) {}
     ~integration() {}
 
-    void reset();
     void optimize(const unsigned int n_iter, const unsigned int n_update, const std::string &filename);
     double computeLoss();
 

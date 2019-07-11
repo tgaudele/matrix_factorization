@@ -7,7 +7,7 @@ class sideFactor : public virtual factor
 {
 public:
     sideFactor() {}
-    sideFactor(const std::string &str,unsigned int m, unsigned int n) : factor(str,m,n) { derivativeNumerator.set_size(numRows,numCols); derivativeDenominator.set_size(numCols,numCols); }
+    sideFactor(const std::string &str,unsigned int m, unsigned int n, const std::string &init) : factor(str,m,n,init) { derivativeNumerator.set_size(numRows,numCols); derivativeDenominator.set_size(numCols,numCols); }
     ~sideFactor() {}
 
     void step(double lr);

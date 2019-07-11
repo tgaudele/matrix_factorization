@@ -9,6 +9,8 @@ nmtfObjective::nmtfObjective(double* target, const arma::SizeMat &size, sideFact
     u->addObjective(this,0);
     v->addObjective(this,1);
     w->addObjective(this,2);
+    int k = std::max(u->getNumCols(),w->getNumCols());
+    arma::svds(L,s,R,arma::sp_mat(X),k);
 }
 
 void nmtfObjective::computeLoss()

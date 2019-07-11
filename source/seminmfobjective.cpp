@@ -6,7 +6,9 @@ seminmfObjective::seminmfObjective(double* target, const arma::SizeMat &size, un
     V(arma::mat(v->getMemPtr(),v->getNumRows(),v->getNumCols(),false))
 {
     u->addObjective(this,0);
-    v->addObjective(this,1);
+    v->addObjective(this,2);
+    int k = std::max(u->getNumCols(),v->getNumCols());
+    arma::svds(L,s,R,arma::sp_mat(X),k);
 }
 
 void seminmfObjective::computeLoss()

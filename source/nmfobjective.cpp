@@ -6,7 +6,9 @@ nmfObjective::nmfObjective(double* target, const arma::SizeMat &size, sideFactor
     V(arma::mat(v->getMemPtr(),v->getNumRows(),v->getNumCols(),false))
 {
     u->addObjective(this,0);
-    v->addObjective(this,1);
+    v->addObjective(this,2);
+    int k = std::max(u->getNumCols(),v->getNumCols());
+    arma::svds(L,s,R,arma::sp_mat(X),k);
 }
 
 void nmfObjective::computeLoss()
@@ -21,7 +23,7 @@ void nmfObjective::computeLossDerivatives(unsigned int factorPosition, arma::mat
         derivativeNumerator += (X * V);
         derivativeDenominator += (V.t() * V);
         break;}
-    case 1: {
+    case 2: {
         derivativeNumerator += (X.t() * U);
         derivativeDenominator += (U.t() * U);
         break;}

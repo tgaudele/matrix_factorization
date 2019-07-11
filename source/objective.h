@@ -6,6 +6,7 @@
 #include <vector>
 #include <math.h>
 #include <iostream>
+#include <algorithm>
 
 class factor;
 typedef std::vector<factor*> factors;
@@ -22,11 +23,16 @@ public:
    void virtual computeLoss() {}
    inline double getLoss() { return lossScore; }
 
+   void getSVDNMF(unsigned int, arma::mat&);
+   void getNNSVD(unsigned int, arma::mat&);
 
 protected:
     factors Fs;
     arma::mat X;
     double lossScore;
+    arma::mat L;
+    arma::vec s;
+    arma::mat R;
 };
 
 #endif // OBJECTIVE_H

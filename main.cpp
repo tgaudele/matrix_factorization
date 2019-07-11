@@ -25,14 +25,14 @@ int main()
 
     unsigned int k1 = 20;
     unsigned int k2 = 20;
-
+    std::string initializer = "nnsvd";
     // We simultaneously factorize R12 = G1 * S * G2.T and R23 = G2 * G3.T
 
     factors all_factors;
     // We first create all the factors and add them to a list
-    sideFactor G1("path_for_save",n1,k1); G1.addRegularizer(regularizer.memptr(),arma::size(regularizer)); all_factors.push_back(&G1);
-    sideFactor G2("path_for_save",n2,k2); all_factors.push_back(&G2);
-    sideFactor G3("path_for_save",n3,k2);  all_factors.push_back(&G3);
+    sideFactor G1("path_for_save",n1,k1,initializer); G1.addRegularizer(regularizer.memptr(),arma::size(regularizer)); all_factors.push_back(&G1);
+    sideFactor G2("path_for_save",n2,k2,initializer); all_factors.push_back(&G2);
+    sideFactor G3("path_for_save",n3,k2,initializer);  all_factors.push_back(&G3);
 
     centralFactor S("path_for_save",k1,k2); all_factors.push_back(&S);
 

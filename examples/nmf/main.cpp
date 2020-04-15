@@ -2,7 +2,6 @@
 #include "integration.h"
 
 
-// EXAMPLE MAIN, we have two main matrices R12 and R23 that we simultaneously factorize using a combination of NMF and NMTF
 int main()
 {
     //Uncomment if needed

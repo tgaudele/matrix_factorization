@@ -6,14 +6,14 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -fopenmp -DARMA_DONT_USE_WRA
 add_executable(${PROJECT_NAME} "main.cpp")
 
 
-find_library(NMFIF_LIB nmfif ../../)
+find_library(NMFIF_LIB nmfif  PATH_TO_FOLDER_CONTAINING_NMFIF_SHARED_OBJECT)
 if(NOT NMFIF_LIB)
   message(FATAL_ERROR "nmfif library not found")
 endif()
-find_library(HDF5_LIB hdf5 /home/thomas/Documents/hdf5/lib)
+find_library(HDF5_LIB hdf5 PATH_TO_HDF5_LIB_FOLDER)
 if(NOT HDF5_LIB)
   message(FATAL_ERROR "hdf5 library not found")
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${NMFIF_LIB} ${HDF5_LIB})
-target_include_directories(${PROJECT_NAME} PUBLIC /home/thomas/Documents/phd_code/matrix_factorization/source /home/thomas/Documents/hdf5/include /home/thomas/Documents/armadillo-9.860.2/include)
+target_include_directories(${PROJECT_NAME} PUBLIC PATH_TO_NMFIF_SOURCE_FOLDER@ PATH_TO_HDF5_INCLUDE_FOLDER@ PATH_TO_ARMADILLO_INCLUDE_FOLDER)

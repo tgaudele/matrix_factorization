@@ -1,9 +1,11 @@
 # matrix_factorization
 
-C++ code for non-negative matrix factorization joint optimization. Includes NMF, NMTF and Symmetric NMTF.
+C++ code for non-negative matrix factorization joint optimization. Includes NMF, NMTF and Symmetric NMTF. 
 
 To compile, gcc supporting C++11 (or above) and cmake are required.
-Dependencies include Armadillo, Lapack, OpenBlas (or MKL), CLapack, HDF5, OpenMP(see CmakeLists.txt file for details).
+Dependencies include Armadillo, Lapack, OpenBlas (or MKL), CLapack, HDF5, OpenMP(see CmakeLists.txt file for details). 
+
+EDIT CMakeLists.txt TO BUILD LIBRARY.
 
 This is a fully non-negative framework, i.e. all factors are constrained to be positive (For update rules see Čopar, Andrej, and Blaž Zupan. "Scalable non-negative matrix tri-factorization." BioData mining 10.1 (2017): 41.)
 

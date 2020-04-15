@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++1y -fopenmp -DARMA_DONT_USE_WRAPPER -DARMA_USE_HDF5  -rdynamic CMakeFiles/test_nmf.dir/main.cpp.o  -o test_nmf -Wl,-rpath,/home/thomas/Documents/phd_code/matrix_factorization:/home/thomas/Documents/hdf5/lib /home/thomas/Documents/phd_code/matrix_factorization/libnmfif.so /home/thomas/Documents/hdf5/lib/libhdf5.so 

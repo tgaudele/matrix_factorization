@@ -11,8 +11,8 @@ public:
     factor(const std::string &str, unsigned int m, unsigned int n, const std::string& initMode);
     ~factor() {}
 
-    void addGraphRegularizer(double* reg,double lambda);
-    void addL2Regularizer(double lambda);
+    void addGraphRegularizer(double* reg,double lambda=1.0);
+    void addL2Regularizer(double lambda=1.0);
     void addObjective(objective* o,unsigned int pos);
 
     void step();

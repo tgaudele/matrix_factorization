@@ -4,8 +4,8 @@
 
 C++ code for non-negative matrix factorization joint optimization. Includes NMF, Symmetric NMF, NMTF and Symmetric NMTF. 
 
-To compile, gcc supporting C++11 (or above) and cmake are required.\\
-Dependencies include Armadillo, Lapack, OpenBlas (or MKL), CLapack, HDF5, OpenMP(see CmakeLists.txt file for details). 
+To compile, gcc supporting C++11 (or above) and cmake v2.8 (or above) are required.
+Dependencies include Armadillo, Lapack, OpenBlas (or MKL), HDF5, OpenMP(see CmakeLists.txt file for details). 
 
 **EDIT CMakeLists.txt TO BUILD THE LIBRARY ADDING THE PATH TO YOUR DOWNLOAD/INSTALLATION OF ARMADILLO AND HDF5.** Once edited, run the following commands to build the shared object.
 ```

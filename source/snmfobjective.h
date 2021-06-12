@@ -1,21 +1,21 @@
-#ifndef NMFOBJECTIVE_H
-#define NMFOBJECTIVE_H
+#ifndef SNMFOBJECTIVE_H
+#define SNMFOBJECTIVE_H
 
 #include "factor.h"
 
-class nmfObjective : public virtual objective
+class snmfObjective : public virtual objective
 {
 public:
-    nmfObjective() {}
-    nmfObjective(double *target, const arma::SizeMat &size, factor*, bool = false,double scalar=1.0);
-    nmfObjective(double *target, const arma::SizeMat &size, factor*, arma::mat &, arma::mat &, arma::mat &,double scalar=1.0);
-    nmfObjective(double *target, const arma::SizeMat &size, factor*, std::string, std::string, std::string,double scalar=1.0);
-    ~nmfObjective() {}
+    snmfObjective() {}
+    snmfObjective(double *target, const arma::SizeMat &size, factor*, bool = false,double scalar=1.0);
+    snmfObjective(double *target, const arma::SizeMat &size, factor*, arma::mat &, arma::mat &, arma::mat &,double scalar=1.0);
+    snmfObjective(double *target, const arma::SizeMat &size, factor*, std::string, std::string, std::string,double scalar=1.0);
+    ~snmfObjective() {}
 
     void computeLoss();
     void computeLossDerivatives(unsigned int, arma::mat&, arma::mat&);
 private:
-    arma::mat U, V;
+    arma::mat U;
 };
 
-#endif // NMFOBJECTIVE_H
+#endif // SNMFOBJECTIVE_H

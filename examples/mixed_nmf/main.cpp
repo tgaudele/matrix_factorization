@@ -31,9 +31,9 @@ int main()
     factors all_factors;
     // We first create all the factors and add them to a list
     factor F("./",n1,k1,initializer); all_factors.push_back(&F);
-    factor S1("./",k1,k2,initializer); all_factors.push_back(&S);
+    factor S1("./",k1,k2,initializer); all_factors.push_back(&S1);
     factor G("./",n2,k2,initializer); G.addL2Regularizer(); all_factors.push_back(&G);
-    factor S2("./",k3,k2,initializer); all_factors.push_back(&S2);
+    factor S2("./",k3,k1,initializer); all_factors.push_back(&S2);
     factor H("./",n3,k3,initializer); all_factors.push_back(&H);
 
     std::cout << "Factors initialized in " << (double)omp_get_wtime() - start << std::endl;
@@ -41,8 +41,8 @@ int main()
     objectives all_objectives;
     // We then initialize the different objectives and add them to a list
     nmtfObjective O1(X.memptr(),arma::size(X),&F,&S1,&G); all_objectives.push_back(&O1);
-    nmtfObjective O2(Y.memptr(),arma::size(X),&H,&S2,&F); all_objectives.push_back(&O2);
-    snmfObjective O3(Z.memptr(),arma::size(X),&F); all_objectives.push_back(&O3);
+    nmtfObjective O2(Y.memptr(),arma::size(Y),&H,&S2,&F); all_objectives.push_back(&O2);
+    snmfObjective O3(Z.memptr(),arma::size(Z),&F); all_objectives.push_back(&O3);
 
     std::cout << "Objectives initialized in " << (double)omp_get_wtime() - start << std::endl;
 

@@ -52,7 +52,7 @@ void nmtfObjective::computeLossDerivatives(unsigned int factorPosition,arma::mat
     case 2: {
         arma::mat temp = U * V;
         derivativeNumerator += scaler * (X.t() * temp);
-        derivativeDenominator += scaler * (V * temp.t() * temp);
+        derivativeDenominator += scaler * (W * temp.t() * temp);
         break;}
     }
 }
